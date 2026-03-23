@@ -52,4 +52,7 @@ class Rectangle:
         """String representation of rectangle"""
         if self.__width == 0 or self.__height == 0:
             return ""
-        return "\n".join("#" * self.__width for _ in range(self.__height))
+        lines = []
+        for _ in range(self.__height):
+            lines.append("#" * self.__width)
+        return "\n".join(lines)
