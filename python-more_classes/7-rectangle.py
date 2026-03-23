@@ -56,11 +56,12 @@ class Rectangle:
         """String representation of rectangle"""
         if self.__width == 0 or self.__height == 0:
             return ""
-        return "\n".join(str(self.print_symbol) * self.__width for _ in range(self.__height))
+        symbol = str(self.print_symbol)
+        return "\n".join(symbol * self.__width for _ in range(self.__height))
 
     def __repr__(self):
         """Return string representation for eval"""
-        return f"Rectangle({self.__width}, {self.__height})"
+        return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
         """Print message when instance is deleted"""
