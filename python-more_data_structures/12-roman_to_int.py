@@ -1,16 +1,5 @@
 #!/usr/bin/python3
-"""Roman to Integer conversion module"""
-
-
 def roman_to_int(roman_string):
-    """Convert a Roman numeral to an integer.
-    
-    Args:
-        roman_string: A string representing a Roman numeral
-        
-    Returns:
-        An integer value of the Roman numeral, or 0 if invalid
-    """
     if not isinstance(roman_string, str) or roman_string is None:
         return 0
 
