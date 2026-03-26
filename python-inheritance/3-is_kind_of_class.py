@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module that defines a function to check class instance or inheritance"""
+"""is_kind_of_class function module"""
 
 
 def is_kind_of_class(obj, a_class):
