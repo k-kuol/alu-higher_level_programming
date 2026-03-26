@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module that defines a function to check inheritance"""
+"""inherits_from function module"""
 
 
 def inherits_from(obj, a_class):
