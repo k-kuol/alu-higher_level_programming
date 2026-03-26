@@ -13,3 +13,4 @@ def inherits_from(obj, a_class):
         True if obj inherits from a_class (but not if obj is exactly a_class), False otherwise
     """
     return isinstance(obj, a_class) and type(obj) is not a_class
+

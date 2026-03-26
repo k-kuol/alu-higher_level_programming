@@ -12,3 +12,4 @@ def lookup(obj):
         A list of strings representing available attributes and methods
     """
     return dir(obj)
+
