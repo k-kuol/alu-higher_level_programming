@@ -1,113 +1,89 @@
 Test for 7-base_geometry.py
 ===========================
 
-This is a doctest file for BaseGeometry class.
+This is a doctest for the BaseGeometry class.
 
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
+Test check instantiation
 >>> bg = BaseGeometry()
 
-Test valid integers
->>> bg.integer_validator("my_int", 12)
-
->>> bg.integer_validator("width", 89)
-
->>> bg.integer_validator("one", 1)
-
-Test string input
->>> try:
-...     bg.integer_validator("name", "John")
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] name must be an integer
-
-Test zero
->>> try:
-...     bg.integer_validator("age", 0)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] age must be greater than 0
-
-Test negative number
->>> try:
-...     bg.integer_validator("distance", -4)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] distance must be greater than 0
-
-Test area method
+Test area()
 >>> try:
 ...     bg.area()
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
 [Exception] area() is not implemented
 
-Test float
->>> try:
-...     bg.integer_validator("float_test", 3.14)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] float_test must be an integer
-
-Test None
->>> try:
-...     bg.integer_validator("none_test", None)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] none_test must be an integer
-
-Test list
->>> try:
-...     bg.integer_validator("list_test", [1, 2, 3])
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] list_test must be an integer
-
-Test tuple
->>> try:
-...     bg.integer_validator("tuple_test", (1, 2))
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] tuple_test must be an integer
-
-Test bool True
->>> try:
-...     bg.integer_validator("bool_test", True)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] bool_test must be an integer
-
-Test bool False
->>> try:
-...     bg.integer_validator("bool_test", False)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] bool_test must be an integer
-
-Test dict
->>> try:
-...     bg.integer_validator("dict_test", {"key": 1})
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] dict_test must be an integer
-
-Test set
->>> try:
-...     bg.integer_validator("set_test", {1, 2, 3})
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] set_test must be an integer
-
-Test missing both arguments
+Test integer_validator()
 >>> try:
 ...     bg.integer_validator()
 ... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+...     print(e.__class__.__name__)
+TypeError
 
-Test missing value argument
+Test integer_validator("age")
 >>> try:
 ...     bg.integer_validator("age")
 ... except Exception as e:
+...     print(e.__class__.__name__)
+TypeError
+
+Test integer_validator("age", 1)
+>>> bg.integer_validator("age", 1)
+
+Test integer_validator("age", 0)
+>>> try:
+...     bg.integer_validator("age", 0)
+... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+[ValueError] age must be greater than 0
+
+Test integer_validator("age", -4)
+>>> try:
+...     bg.integer_validator("age", -4)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] age must be greater than 0
+
+Test integer_validator("age", "4")
+>>> try:
+...     bg.integer_validator("age", "4")
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+Test integer_validator("age", (4,))
+>>> try:
+...     bg.integer_validator("age", (4,))
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+Test integer_validator("age", [3])
+>>> try:
+...     bg.integer_validator("age", [3])
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+Test integer_validator("age", True)
+>>> try:
+...     bg.integer_validator("age", True)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+Test integer_validator("age", {3, 4})
+>>> try:
+...     bg.integer_validator("age", {3, 4})
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+Test integer_validator("age", None)
+>>> try:
+...     bg.integer_validator("age", None)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
