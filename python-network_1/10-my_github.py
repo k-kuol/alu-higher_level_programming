@@ -9,8 +9,11 @@ if __name__ == "__main__":
     
     response = requests.get('https://api.github.com/user', auth=(username, password))
     
-    try:
-        json_response = response.json()
-        print(json_response.get('id'))
-    except ValueError:
+    if response.status_code == 200:
+        try:
+            json_response = response.json()
+            print(json_response.get('id'))
+        except ValueError:
+            print(None)
+    else:
         print(None)
